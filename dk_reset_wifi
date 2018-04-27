@@ -1,0 +1,6 @@
+#!/bin/bash
+sudo killall wpa_supplicant
+sudo rmmod 8821ce
+sudo modprobe 8821ce
+sudo dhclient -r
+sudo systemctl start NetworkManager

@@ -1,0 +1,10 @@
+#!/bin/bash
+sudo systemctl stop NetworkManager
+sudo killall wpa_supplicant
+sudo rmmod 8821ce
+sudo modprobe 8821ce
+
+[[ $2 ]] && key=$2 || key=${!1}
+
+wpa_passphrase $1 $key | sudo wpa_supplicant -B -c /dev/stdin -i wlp5s0
+sudo dhclient wlp5s0

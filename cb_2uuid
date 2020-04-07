@@ -1,0 +1,16 @@
+#!/usr/bin/env python
+import re
+import sys
+from os import listdir, rename
+from os.path import isfile, join
+from uuid import uuid1
+
+try:
+  pattern=sys.argv[1]
+  path = sys.argv[2]
+  files =  [f for f in listdir(path) if isfile(join(path, f)) and re.match(pattern, f)]
+  for path in files:  
+    rename(path, str(uuid1()) + '-' + path) 
+
+except:
+  print('args missing, use: cb_2uuid filenamepattern location')

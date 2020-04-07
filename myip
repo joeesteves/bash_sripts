@@ -1,0 +1,1 @@
+ ifconfig | grep -Po "(?<=inet\s)(.*)(?=netmask 255.255.255)"

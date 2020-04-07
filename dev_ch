@@ -1,0 +1,5 @@
+#!/bin/zsh
+
+cd ~/myApps/crosshero && \
+tmux new-session -s ch_guard -d bundle exec guard & \
+bundle exec rails s -b 0.0.0.0

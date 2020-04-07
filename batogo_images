@@ -1,0 +1,1 @@
+docker run --rm --mount src=batogo_uploads,dst=/upload --mount type=bind,src=/home/pony/Descargas,dst=/source -ti alpine
